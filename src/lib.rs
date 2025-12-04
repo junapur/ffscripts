@@ -17,11 +17,11 @@ pub fn check_dependencies() -> Result<()> {
 
             Err(e) => match e.kind() {
                 NotFound => bail!(
-                    "{} was not found. Please visit https://ffmpeg.org/download.html.",
+                    "`{}` was not found, please visit https://ffmpeg.org/download.html",
                     tool
                 ),
 
-                _ => return Err(e).context(format!("Failed to check if {} is installed.", tool)),
+                _ => return Err(e).context(format!("Failed to check if `{}` is available", tool)),
             },
         }
     }
